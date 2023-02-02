@@ -10,8 +10,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        hello
+      <main className=" bg-white px-10 md:px-20 lg:px-40">
+        <section className="min-h-screen mb-20 ">
+          <nav className="py-10 mb-12 flex justify-between dark:text-white">
+            <h1 className="font-burtons text-xl">LINE DOCERIA ARTESANAL</h1>
+
+            <ul className="flex items-center">
+              <li>
+                <a
+                  className="bg-gradient-to-r from-teal-500 text- to-emerald-500 text-white px-4 py-4 border-none rounded-md ml-8"
+                  href="#"
+                >
+                  Faça seu pedido
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </section>
       </main>
     </div>
   )
