@@ -12,16 +12,16 @@ export default function Home() {
 
       <main className=" bg-white px-10 md:px-20 lg:px-40">
         <section className="min-h-screen mb-20 ">
-          <nav className="py-10 mb-12 flex justify-between dark:text-white">
-            <h1 className="font-burtons text-xl">LINE DOCERIA ARTESANAL</h1>
+          <nav className="py-10 mb-12 flex items-center justify-between">
+            <h1 className="font-burtons text-sm sm:text-xl">LINE DOCERIA</h1>
 
             <ul className="flex items-center">
               <li>
                 <a
-                  className="bg-gradient-to-r from-teal-500 text- to-emerald-500 text-white px-4 py-4 border-none rounded-md ml-8"
+                  className="bg-gradient-to-r from-teal-500 text- to-emerald-500 text-white px-2 py-2 sm:px-4 sm:py-4 border-none rounded-md"
                   href="#"
                 >
-                  Faça seu pedido
+                  Peça aqui
                 </a>
               </li>
             </ul>
