@@ -1,11 +1,5 @@
 import Head from 'next/head'
 import Image from "next/image";
-import {
-  AiFillInstagram,
-  AiFillPhone,
-  AiFillMail
-} from "react-icons/ai";
-import doces from '../public/doces.jpg'
 
 export default function Home() {
   return (
@@ -17,54 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="px-10 md:px-20 lg:px-40" >
-        <section className="absolute left-0 min-w-full min-h-screen mb-20 bg-[url('https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-no-repeat">
-          <div className="backdrop-blur min-h-screen absolute left-0 min-w-full">
-            <nav className="px-10 md:px-20 lg:px-40 py-10 mb-12 flex items-center justify-between">
-              <h1 className="font-burtons text-sm sm:text-xl">LINE DOCERIA</h1>
-
-              <ul className="flex items-center">
-                <li>
-                  <a
-                    className="bg-gradient-to-r from-teal-500 text- to-emerald-500 text-white px-2 py-2 sm:px-4 sm:py-4 border-none rounded-md"
-                    href="#"
-                  >
-                    Peça aqui
-                  </a>
-                </li>
-              </ul>
-            </nav>
-
-            <div className="text-center p-10 py-10 flex flex-col items-center">
-              <h2 className="text-5xl py-2 text-teal-600 font-medium md:text-6xl">
-                Line Doceria Artesanal
-              </h2>
-
-              <h3 className="text-2xl py-2 md:text-3xl">
-                Doces, Bolos, e Palhas Italianas
-              </h3>
-
-              <p className="text-md py-5 leading-8 text-gray-800 max-w-xl mx-auto md:text-xl">
-                O melhor da confeitaria artesanal para eternizar momentos especiais!
-              </p>
-
-              <div className="text-5xl flex justify-center gap-16 py-3 text-teal-600">
-                <a href="#" target="_blank" rel="noreferrer">
-                  <AiFillInstagram />
-                </a>
-
-                <a href="#" target="_blank" rel="noreferrer">
-                  <AiFillMail />
-                </a>
-
-                <a href="#">
-                  <AiFillPhone />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+      <main>hello</main>
     </div>
   )
 }
