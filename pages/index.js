@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from "next/image";
 import navImg from '../public/Ellipse 4.png'
+import whiteCurve from '../public/white-curve.png'
 import { HiShoppingBag } from 'react-icons/hi2'
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap" rel="stylesheet" />
       </Head>
 
-      <main className='bg-cyan-700 w-screen h-screen'>
+      <main className='bg-cyan-700 w-full h-full '>
         <nav className='bg-white h-20 px-28 flex items-center justify-between'>
           <div className='flex gap-3'>
             <Image src={navImg} />
@@ -30,6 +31,10 @@ export default function Home() {
             <HiShoppingBag size="1.8rem" className='text-cyan-700 cursor-pointer' />
           </a>
         </nav>
+
+        <section >
+          <Image src={whiteCurve} className='w-full' />
+        </section>
       </main>
     </div>
   )
