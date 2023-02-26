@@ -1,6 +1,7 @@
 import Nav from '@/components/Nav'
 import Head from 'next/head'
 import Image from 'next/image'
+import doces from '../../public/doces.jpg'
 
 export default function Home() {
   return (
@@ -20,6 +21,23 @@ export default function Home() {
       </header>
 
       <main>
+        <section className="section" id="home">
+          <div className="container grid">
+            <div className="image">
+              <Image src={doces} />
+            </div>
+
+            <div className="text">
+              <h2 className="title">Experimente melhor da confeitaria artesanal</h2>
+
+              <p>Doces, Bolos, Brownies, Palhas Italianas, Trufas, e muito mais para adoçar momentos especiais!</p>
+
+              <a className="button" href="#menu">Veja o Cardápio</a>
+            </div>
+          </div>
+        </section>
+
+        <div className="divider-1"></div>
       </main>
     </>
   )
