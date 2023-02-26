@@ -9,6 +9,8 @@ export default function Nav() {
 
                     <li><a className="title" href="#about">Sobre</a></li>
 
+                    <li><a className="title" href="#services">Serviços</a></li>
+
                     <li><a className="title" href="#menu">Cardápio</a></li>
 
                     <li><a className="title" href="#contact">Contato</a></li>
