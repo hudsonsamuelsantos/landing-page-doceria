@@ -264,6 +264,7 @@ nav.show div.icon-close {
 
 #home .image {
   position: relative;
+  width: fit-content;
 }
 
 #home .image::before {
@@ -279,12 +280,13 @@ nav.show div.icon-close {
 
 #home .image img {
   position: relative;
-  right: 2.93rem;
+  width: 78%;
 }
 
 #home .image img,
 #home .image::before {
   border-radius: 0.25rem;
+  width: 78%;
 }
 
 #home .text {
