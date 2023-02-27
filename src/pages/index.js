@@ -15,6 +15,7 @@ export default function Home() {
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+        <script src="https://unpkg.com/phosphor-icons"></script>
       </Head>
 
       <header id="header">
@@ -75,6 +76,49 @@ export default function Home() {
         </section>
 
         <div className="divider-2"></div>
+
+        <section className="section" id="services">
+          <div className="container grid">
+            <header>
+              <h2 className="title">Nossos serviços</h2>
+              <p className="subtitle">
+                A <strong>Line Doceria Artesanal</strong> oferece os melhores serviços e os mais
+                saborosos produtos de confeitaria, seja para o seu evento ou simplesmente para adoçar a sua rotina. ❤
+              </p>
+            </header>
+            <div className="cards grid">
+              <div className="card">
+                <i class="ph-bag"></i>
+                <h3 className="title">Pequenas e grandes quantidades</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+                  distinctio neque blanditiis, dolorem aperiam nulla explicabo
+                  asperiores
+                </p>
+              </div>
+              <div className="card">
+                <i class="ph-cake"></i>
+                <h3 className="title">Produtos personalizados</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+                  distinctio neque blanditiis, dolorem aperiam nulla explicabo
+                  asperiores
+                </p>
+              </div>
+              <div className="card">
+                <i class="ph-bicycle"></i>
+                <h3 className="title">Fazemos entregas</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+                  distinctio neque blanditiis, dolorem aperiam nulla explicabo
+                  asperiores
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="divider-1"></div>
       </main>
     </>
   )
