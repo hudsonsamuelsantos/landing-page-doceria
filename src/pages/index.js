@@ -45,19 +45,25 @@ export default function Home() {
             <div className="image">
               <Image src={aline} />
             </div>
+
             <div className="text">
               <h2 className="title">Sobre nós</h2>
+
               <p>
-                Olá! Eu sou a Aline, a confeiteira por trás da Line Doceria Artesanal. ❤
+                Olá! Eu sou a Aline, a confeiteira por trás da <strong>Line Doceria Artesanal. ❤</strong>
               </p>
+
               <br />
+
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
                 illum ratione impedit quae eum quis adipisci asperiores, est
                 doloribus distinctio excepturi minima eius dolore! Perferendis
                 laborum illo aspernatur repellendus ipsum.
               </p>
+
               <br />
+
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed
                 exercitationem, illum sapiente quasi hic iusto odio maiores esse
@@ -69,8 +75,6 @@ export default function Home() {
         </section>
 
         <div className="divider-2"></div>
-
-        <div className="divider-1"></div>
       </main>
     </>
   )

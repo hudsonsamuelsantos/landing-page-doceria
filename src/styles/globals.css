@@ -341,6 +341,10 @@ nav.show div.icon-close {
   margin-right: 1.5rem;
 }
 
+#about .text p strong {
+  color: var(--base-color);
+}
+
 /*====  SERVICES ============================ */
 .cards.grid {
   gap: 1.5rem;
