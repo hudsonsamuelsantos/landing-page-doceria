@@ -3,9 +3,12 @@ import { Navigation, Pagination } from "swiper"
 import 'swiper/css'
 import "swiper/css/pagination"
 import "swiper/css/navigation"
+
 import Nav from '@/components/Nav'
 import Head from 'next/head'
 import Image from 'next/image'
+import Script from 'next/script'
+
 import doces from '../../public/doces.jpg'
 import aline from '../../public/aline.png'
 
@@ -25,9 +28,10 @@ export default function Home() {
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
-        <script src="https://unpkg.com/phosphor-icons"></script>
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
       </Head>
+
+      <Script src="https://unpkg.com/phosphor-icons" />
+      <Script src="https://unpkg.com/swiper/swiper-bundle.min.js" />
 
       <header id="header">
         <Nav />
