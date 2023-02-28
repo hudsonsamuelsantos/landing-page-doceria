@@ -254,6 +254,32 @@ export default function Home() {
 
         <div className="divider-1"></div>
       </main>
+
+      <footer className="section">
+        <div className="container grid">
+          <div className="brand">
+            <a className="logo logo-alt" href="#home">Line<span> Doceria Artesanal</span>.</a>
+
+            <p>©2023 Line Doceria Artesanal.</p>
+
+            <p>Todos os direitos reservados.</p>
+          </div>
+
+          <div className="social grid">
+            <a href="https://instagram.com" target="_blank">
+              <i className="icon-instagram"></i>
+            </a>
+
+            <a href="https://facebook.com" target="_blank">
+              <i className="icon-facebook"></i
+              ></a>
+
+            <a href="https://youtube.com" target="_blank"
+            ><i className="icon-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </footer>
     </>
   )
 }
