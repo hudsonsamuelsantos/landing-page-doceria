@@ -1,10 +1,20 @@
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from "swiper"
+import 'swiper/css'
+import "swiper/css/pagination"
+import "swiper/css/navigation"
 import Nav from '@/components/Nav'
 import Head from 'next/head'
 import Image from 'next/image'
 import doces from '../../public/doces.jpg'
 import aline from '../../public/aline.png'
 
+import brigadeiro from '../../public/brigadeiro.jpeg'
+import brownie from '../../public/brownie.jpeg'
+import palha from '../../public/palha.jpeg'
+
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -16,6 +26,7 @@ export default function Home() {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
         <script src="https://unpkg.com/phosphor-icons"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
       </Head>
 
       <header id="header">
@@ -39,7 +50,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div class="divider-1"></div>
+        <div className="divider-1"></div>
 
         <section className="section" id="about">
           <div className="container grid">
@@ -81,44 +92,129 @@ export default function Home() {
           <div className="container grid">
             <header>
               <h2 className="title">Nossos serviços</h2>
+
               <p className="subtitle">
                 A <strong>Line Doceria Artesanal</strong> oferece os melhores serviços e os mais
                 saborosos produtos de confeitaria, seja para o seu evento ou simplesmente para adoçar a sua rotina. ❤
               </p>
             </header>
+
             <div className="cards grid">
               <div className="card">
-                <i class="ph-bag"></i>
+                <i className="ph-bag"></i>
+
                 <h3 className="title">Pequenas e grandes quantidades</h3>
+
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
                   distinctio neque blanditiis, dolorem aperiam nulla explicabo
                   asperiores
                 </p>
               </div>
+
               <div className="card">
-                <i class="ph-cake"></i>
+                <i className="ph-cake"></i>
+
                 <h3 className="title">Produtos personalizados</h3>
+
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
                   distinctio neque blanditiis, dolorem aperiam nulla explicabo
                   asperiores
                 </p>
               </div>
+
               <div className="card">
-                <i class="ph-bicycle"></i>
+                <i className="ph-bicycle"></i>
+
                 <h3 className="title">Fazemos entregas</h3>
+
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
                   distinctio neque blanditiis, dolorem aperiam nulla explicabo
                   asperiores
                 </p>
+
               </div>
             </div>
           </div>
         </section>
 
-        <div class="divider-1"></div>
+        <div className="divider-1"></div>
+
+        <section className="section" id="menu">
+          <div className="container">
+            <header>
+              <h2 className="title">Nosso Cardápio</h2>
+
+              <p className="subtitle">
+                Conheça os produtos da <strong>Line Doceria Artesanal</strong>. <br />
+                Arraste para o lado para ver mais. ❤
+              </p>
+            </header>
+
+            <div className="testimonials swiper-container">
+              <Swiper
+                className="swiper-wrapper mySwiper"
+                slidesPerView={1}
+                pagination={{
+                  dynamicBullets: true,
+                }}
+                navigation={true}
+                modules={[Pagination, Navigation]}
+                mousewheel={true}
+                keyboard={true}
+                breakpoints={{
+                  767: {
+                    slidesPerView: 2,
+                    setWrapperSize: true
+                  }
+                }}
+              >
+
+                <SwiperSlide className="testimonial swiper-slide">
+                  <div className='menu-card'>
+                    <h3 className='title'>Brigadeiros</h3>
+
+                    <Image src={brigadeiro} />
+
+                    <a href="">Veja mais</a>
+                  </div>
+                </SwiperSlide>
+
+                <SwiperSlide className="testimonial swiper-slide">
+                  <div className='menu-card'>
+                    <h3 className='title'>Brigadeiros</h3>
+
+                    <Image src={brigadeiro} />
+
+                    <a href="">Veja mais</a>
+                  </div>
+                </SwiperSlide>
+
+                <SwiperSlide className="testimonial swiper-slide">
+                  <div className='menu-card'>
+                    <h3 className='title'>Brigadeiros</h3>
+
+                    <Image src={brigadeiro} />
+
+                    <a href="">Veja mais</a>
+                  </div>
+                </SwiperSlide>
+
+                <SwiperSlide className="testimonial swiper-slide">
+                  <div className='menu-card'>
+                    <h3 className='title'>Brigadeiros</h3>
+
+                    <Image src={brigadeiro} />
+
+                    <a href="">Veja mais</a>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   )
