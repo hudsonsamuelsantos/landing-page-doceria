@@ -219,6 +219,40 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <div className="divider-2"></div>
+
+
+        <section className="section" id="contact">
+          <div className="container grid">
+            <div className="text">
+              <h2 className="title">Faça seu pedido com a gente!</h2>
+
+              <p>
+                Entre em contato para fazer pedidos, tirar suas dúvidas, ou fazer orçamentos!
+              </p>
+
+              <a
+                href="https://api.whatsapp.com/send?phone=+5511998456754&text=Oi! Gostaria de fazer um pedido na Line Doceria Artesanal!"
+                className="button"
+                target="_blank"
+              ><i className="icon-whatsapp"></i> Entrar em contato</a
+              >
+            </div>
+
+            <div className="links">
+              <ul className="grid">
+                <li><i className="icon-phone"></i> 11 99845-6754</li>
+
+                <li><i className="icon-map-pin"></i> Viçosa - MG</li>
+
+                <li><i className="icon-mail"></i> contato@linedoceria.com</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <div className="divider-1"></div>
       </main>
     </>
   )
