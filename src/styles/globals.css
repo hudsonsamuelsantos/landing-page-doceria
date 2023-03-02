@@ -131,6 +131,8 @@ body {
   z-index: 100;
   background-color: var(--body-color);
   width: 100%;
+
+  transition: 0.2s;
 }
 
 #header.scroll {

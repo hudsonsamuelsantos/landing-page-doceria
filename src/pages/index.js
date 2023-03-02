@@ -32,10 +32,9 @@ export default function Home() {
 
       <Script src="https://unpkg.com/phosphor-icons" />
       <Script src="https://unpkg.com/swiper/swiper-bundle.min.js" />
+      <Script src="https://unpkg.com/scrollreveal" />
 
-      <header id="header">
-        <Nav />
-      </header>
+      <Nav />
 
       <main>
         <section className="section" id="home">
@@ -45,7 +44,7 @@ export default function Home() {
             </div>
 
             <div className="text">
-              <h2 className="title">Experimente melhor da confeitaria artesanal</h2>
+              <h2 className="title">Experimente o melhor da confeitaria artesanal</h2>
 
               <p>Doces, Bolos, Brownies, Palhas Italianas, Trufas, e muito mais para adoçar momentos especiais!</p>
 
