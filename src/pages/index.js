@@ -1,13 +1,15 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination } from "swiper"
-import 'swiper/css'
-import "swiper/css/pagination"
-import "swiper/css/navigation"
+import { useEffect, useRef, useState } from 'react'
 
 import Nav from '@/components/Nav'
 import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from "swiper"
+import 'swiper/css'
+import "swiper/css/pagination"
+import "swiper/css/navigation"
 
 import doces from '../../public/doces.jpg'
 import aline from '../../public/aline.png'
@@ -17,6 +19,17 @@ import brownie from '../../public/brownie.jpeg'
 import palha from '../../public/palha.jpeg'
 
 export default function Home() {
+
+  const backToTopButton = useRef()
+  const [backToTopButtonVisible, setBackToTopButtonVisible] = useState(false)
+
+  const backToTop = () => {
+    if (window.scrollY >= 560) {
+      setBackToTopButtonVisible(true)
+    } else {
+      setBackToTopButtonVisible(false)
+    }
+  }
 
   const runScrollReveal = () => {
     const scrollReveal = ScrollReveal({
@@ -37,6 +50,10 @@ export default function Home() {
     )
   }
 
+  useEffect(() => {
+    window.addEventListener('scroll', () => backToTop())
+  })
+
   return (
     <>
       <Head>
@@ -50,7 +67,6 @@ export default function Home() {
       </Head>
 
       <Script src="https://unpkg.com/phosphor-icons" />
-      <Script src="https://unpkg.com/swiper/swiper-bundle.min.js" />
       <Script
         src="https://unpkg.com/scrollreveal"
         onReady={runScrollReveal}
@@ -301,6 +317,8 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      <a href="#home" className={backToTopButtonVisible ? "back-to-top show" : "back-to-top"} ref={backToTopButton}><i class="icon-arrow-up"></i></a>
     </>
   )
 }

@@ -518,14 +518,21 @@ footer .social a:hover {
   visibility: hidden;
   opacity: 0;
 
-  transition: 0.3s;
+  transition: 0.5s;
   transform: translateY(100%);
+
+  border: 1px solid #fff;
+  border-radius: 9999px;
 }
 
 .back-to-top.show {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--base-color-alt);
 }
 
 /*========= MEDIA QUERIES =========*/
