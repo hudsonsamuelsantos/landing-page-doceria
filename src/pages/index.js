@@ -18,6 +18,25 @@ import palha from '../../public/palha.jpeg'
 
 export default function Home() {
 
+  const runScrollReveal = () => {
+    const scrollReveal = ScrollReveal({
+      origin: 'top',
+      distance: '30px',
+      duration: 800,
+      reset: true
+    })
+
+    scrollReveal.reveal(
+      `#home .image, #home .text,
+      #about .image, #about .text,
+      #services header, #services .card,
+      #menu, #menu header, #menu,
+      #contact .text
+      `,
+      { interval: 100 }
+    )
+  }
+
   return (
     <>
       <Head>
@@ -32,7 +51,10 @@ export default function Home() {
 
       <Script src="https://unpkg.com/phosphor-icons" />
       <Script src="https://unpkg.com/swiper/swiper-bundle.min.js" />
-      <Script src="https://unpkg.com/scrollreveal" />
+      <Script
+        src="https://unpkg.com/scrollreveal"
+        onReady={runScrollReveal}
+      />
 
       <Nav />
 
@@ -156,7 +178,7 @@ export default function Home() {
               </p>
             </header>
 
-            <div className="testimonials swiper-container">
+            <div className="menu swiper-container">
               <Swiper
                 className="swiper-wrapper mySwiper"
                 slidesPerView={1}
@@ -175,7 +197,7 @@ export default function Home() {
                 }}
               >
 
-                <SwiperSlide className="testimonial swiper-slide">
+                <SwiperSlide className=" swiper-slide">
                   <div className='menu-card'>
                     <h3 className='title'>Brigadeiros</h3>
 
@@ -185,7 +207,7 @@ export default function Home() {
                   </div>
                 </SwiperSlide>
 
-                <SwiperSlide className="testimonial swiper-slide">
+                <SwiperSlide className=" swiper-slide">
                   <div className='menu-card'>
                     <h3 className='title'>Brigadeiros</h3>
 
@@ -195,7 +217,7 @@ export default function Home() {
                   </div>
                 </SwiperSlide>
 
-                <SwiperSlide className="testimonial swiper-slide">
+                <SwiperSlide className=" swiper-slide">
                   <div className='menu-card'>
                     <h3 className='title'>Brigadeiros</h3>
 
@@ -205,7 +227,7 @@ export default function Home() {
                   </div>
                 </SwiperSlide>
 
-                <SwiperSlide className="testimonial swiper-slide">
+                <SwiperSlide className=" swiper-slide">
                   <div className='menu-card'>
                     <h3 className='title'>Brigadeiros</h3>
 
