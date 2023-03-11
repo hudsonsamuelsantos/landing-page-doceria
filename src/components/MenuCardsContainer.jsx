@@ -1,4 +1,8 @@
+import { useEffect, useState } from 'react'
+
 import Image from 'next/image'
+
+import axios from "axios"
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from "swiper"
@@ -10,61 +14,20 @@ import brigadeiro from '../../public/brigadeiro.jpeg'
 
 export default function MenuCardsContainer() {
 
-    const Products = [
-        {
-            name: "Brigadeiros",
-            flavors: [
-                "Tradicional",
-                "Churros",
-                "Coco",
-                "Amendoin",
-                "Ninho",
-                "Mesclado",
-            ],
-            prices: [
-                "25 unidades - R$ 38,00",
-                "50 unidades - R$ 68,00",
-                "100 unidades - R$ 118,00",
-                "Mais de 100 unidades - A combinar"
-            ]
-        },
+    const [products, setProducts] = useState(null)
 
-        {
-            name: "Brigadeiros",
-            flavors: [
-                "Tradicional",
-                "Churros",
-                "Coco",
-                "Amendoin",
-                "Ninho",
-                "Mesclado",
-            ],
-            prices: [
-                "25 unidades - R$ 38,00",
-                "50 unidades - R$ 68,00",
-                "100 unidades - R$ 118,00",
-                "Mais de 100 unidades - A combinar"
-            ]
-        },
+    useEffect(() => {
+        async function fetch() {
 
-        {
-            name: "Brigadeiros",
-            flavors: [
-                "Tradicional",
-                "Churros",
-                "Coco",
-                "Amendoin",
-                "Ninho",
-                "Mesclado",
-            ],
-            prices: [
-                "25 unidades - R$ 38,00",
-                "50 unidades - R$ 68,00",
-                "100 unidades - R$ 118,00",
-                "Mais de 100 unidades - A combinar"
-            ]
-        },
-    ]
+            const response = await axios.get('api/products')
+
+            const products = response.data.products
+
+            setProducts(products)
+        }
+
+        fetch()
+    }, [])
 
     return (
         <div className="menu swiper-container">
@@ -87,26 +50,27 @@ export default function MenuCardsContainer() {
                 }}
             >
 
-                {Products.map(product => {
-                    return (
-                        <SwiperSlide className="swiper-slide">
+                {products != null &&
+                    products.map(product => {
+                        return (
+                            <SwiperSlide className="swiper-slide" key={product.name}>
 
-                            <div className='menu-card'>
+                                <div className='menu-card'>
 
-                                <h3 className='title'>{product.name}</h3>
+                                    <h3 className='title'>{product.name}</h3>
 
-                                <Image
-                                    src={brigadeiro}
-                                    alt={product.name}
-                                />
+                                    <Image
+                                        src={product.image}
+                                        alt={product.name}
+                                    />
 
-                                <a href="">Veja mais</a>
+                                    <span>Veja mais</span>
 
-                            </div>
+                                </div>
 
-                        </SwiperSlide>
-                    )
-                })}
+                            </SwiperSlide>
+                        )
+                    })}
 
             </Swiper>
 

@@ -409,10 +409,11 @@ nav.show div.icon-close {
   border-radius: 0.25rem;
 }
 
-#menu .menu-card a {
+#menu .menu-card span {
   text-decoration: underline;
   font-size: large;
   color: var(--base-color-alt);
+  cursor: pointer;
 }
 
 #menu h3 {
