@@ -5,6 +5,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
 
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from "swiper"
+import 'swiper/css'
+import "swiper/css/pagination"
+import "swiper/css/navigation"
+
 import doces from '../../public/doces.jpg'
 import aline from '../../public/aline.png'
 
