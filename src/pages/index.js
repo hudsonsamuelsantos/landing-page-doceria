@@ -17,6 +17,7 @@ import aline from '../../public/aline.png'
 import brigadeiro from '../../public/brigadeiro.jpeg'
 import brownie from '../../public/brownie.jpeg'
 import palha from '../../public/palha.jpeg'
+import MenuCardsContainer from '@/components/MenuCardsContainer'
 
 export default function Home() {
 
@@ -49,6 +50,9 @@ export default function Home() {
       { interval: 100 }
     )
   }
+
+  const modal = useRef()
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     window.addEventListener('scroll', () => backToTop())
@@ -191,66 +195,8 @@ export default function Home() {
               </p>
             </header>
 
-            <div className="menu swiper-container">
-              <Swiper
-                className="swiper-wrapper mySwiper"
-                slidesPerView={1}
-                pagination={{
-                  dynamicBullets: true,
-                }}
-                navigation={true}
-                modules={[Pagination, Navigation]}
-                mousewheel={true}
-                keyboard={true}
-                breakpoints={{
-                  767: {
-                    slidesPerView: 2,
-                    setWrapperSize: true
-                  }
-                }}
-              >
+            <MenuCardsContainer />
 
-                <SwiperSlide className=" swiper-slide">
-                  <div className='menu-card'>
-                    <h3 className='title'>Brigadeiros</h3>
-
-                    <Image src={brigadeiro} alt='Brigadeiros' />
-
-                    <a href="">Veja mais</a>
-                  </div>
-                </SwiperSlide>
-
-                <SwiperSlide className=" swiper-slide">
-                  <div className='menu-card'>
-                    <h3 className='title'>Brigadeiros</h3>
-
-                    <Image src={brigadeiro} alt='Brigadeiros' />
-
-                    <a href="">Veja mais</a>
-                  </div>
-                </SwiperSlide>
-
-                <SwiperSlide className=" swiper-slide">
-                  <div className='menu-card'>
-                    <h3 className='title'>Brigadeiros</h3>
-
-                    <Image src={brigadeiro} alt='Brigadeiros' />
-
-                    <a href="">Veja mais</a>
-                  </div>
-                </SwiperSlide>
-
-                <SwiperSlide className=" swiper-slide">
-                  <div className='menu-card'>
-                    <h3 className='title'>Brigadeiros</h3>
-
-                    <Image src={brigadeiro} alt='Brigadeiros' />
-
-                    <a href="">Veja mais</a>
-                  </div>
-                </SwiperSlide>
-              </Swiper>
-            </div>
           </div>
         </section>
 
@@ -318,6 +264,12 @@ export default function Home() {
       <a href="#home" className={backToTopButtonVisible ? "back-to-top show" : "back-to-top"} ref={backToTopButton}>
         <i className="icon-arrow-up"></i>
       </a>
+
+      <div class={isModalOpen ? "modal-overlay active" : "modal-overlay"} ref={modal}>
+        <div class="modal">
+          <p onClick={() => setIsModalOpen(false)} >Fechar meu modal</p>
+        </div>
+      </div>
     </>
   )
 }

@@ -41,7 +41,7 @@ export default function Nav() {
 
   function changeHeaderWhenScroll() {
 
-    const navHeight = nav.current.offsetHeight
+    const navHeight = nav.current.clientHeight
 
     if (window.scrollY >= navHeight) {
       setIsScroll(true)

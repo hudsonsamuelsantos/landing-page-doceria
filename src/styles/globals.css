@@ -422,7 +422,7 @@ nav.show div.icon-close {
 /* swiper */
 .swiper-slide {
   height: auto;
-  padding: 4rem 1rem;
+  padding-top: 4rem;
 }
 
 .swiper-pagination-bullet {
@@ -656,6 +656,31 @@ footer .social a:hover {
   footer .logo {
     font-size: 2.25rem;
   }
+}
+
+.modal-overlay {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: #fff;
+  padding: 2.4rem;
+  z-index: 1;
 }
 
 /* large devices: 1023 > */
