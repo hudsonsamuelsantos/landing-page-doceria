@@ -14,9 +14,6 @@ import "swiper/css/navigation"
 import doces from '../../public/doces.jpg'
 import aline from '../../public/aline.png'
 
-import brigadeiro from '../../public/brigadeiro.jpeg'
-import brownie from '../../public/brownie.jpeg'
-import palha from '../../public/palha.jpeg'
 import MenuCardsContainer from '@/components/MenuCardsContainer'
 
 export default function Home() {
