@@ -14,12 +14,30 @@ import "swiper/css/navigation"
 import doces from '../../public/doces.jpg'
 import aline from '../../public/aline.png'
 
-import MenuCardsContainer from '@/components/MenuCardsContainer'
+import axios from "axios"
 
 export default function Home() {
 
+  const [products, setProducts] = useState(null)
+
+  const modal = useRef()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const backToTopButton = useRef()
   const [backToTopButtonVisible, setBackToTopButtonVisible] = useState(false)
+
+  useEffect(() => {
+    async function fetch() {
+
+      const response = await axios.get('api/products')
+
+      const products = response.data.products
+
+      setProducts(products)
+    }
+
+    fetch()
+  }, [])
 
   const backToTop = () => {
     if (window.scrollY >= 560) {
@@ -47,9 +65,6 @@ export default function Home() {
       { interval: 100 }
     )
   }
-
-  const modal = useRef()
-  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     window.addEventListener('scroll', () => backToTop())
@@ -192,13 +207,84 @@ export default function Home() {
               </p>
             </header>
 
-            <MenuCardsContainer />
+            <div className="menu swiper-container">
 
+              <Swiper
+                className="swiper-wrapper mySwiper"
+                slidesPerView={1}
+                pagination={{
+                  dynamicBullets: true,
+                }}
+                navigation={true}
+                modules={[Pagination, Navigation]}
+                mousewheel={true}
+                keyboard={true}
+                breakpoints={{
+                  767: {
+                    slidesPerView: 2,
+                    setWrapperSize: true
+                  }
+                }}
+              >
+
+                {products != null &&
+                  products.map((product, index) => {
+                    return (
+                      <div>
+                        <SwiperSlide className="swiper-slide" key={product.name}>
+                          <div className='menu-card'>
+                            <h3 className='title'>{product.name}</h3>
+
+                            <Image
+                              src={product.image}
+                              alt={product.name}
+                            />
+
+                            <span onClick={() => {
+                              setIsModalOpen([true, index])
+
+                              document.body.style.overflow = "hidden"
+                            }} >
+                              Veja mais
+                            </span>
+                          </div>
+                        </SwiperSlide>
+                      </div>
+                    )
+                  })}
+              </Swiper>
+            </div>
           </div>
+
         </section>
 
-        <div className="divider-2"></div>
+        {isModalOpen[0] === true &&
+          <div className="modal-overlay active" ref={modal}>
 
+            {products != null &&
+              products.map((product, index) => {
+
+                if (isModalOpen[1] === index) {
+                  return (
+                    <div className="modal">
+                      <p>Modal do {product.name}</p>
+
+                      <p
+                        onClick={() => {
+                          setIsModalOpen([])
+
+                          document.body.style.overflow = "auto"
+                        }} >Fechar meu modal
+                      </p>
+                    </div>
+                  )
+                }
+              })
+            }
+          </div>
+        }
+
+        <div className="divider-2"></div>
 
         <section className="section" id="contact">
           <div className="container grid">
@@ -213,8 +299,10 @@ export default function Home() {
                 href="https://api.whatsapp.com/send?phone=+5511998456754&text=Oi! Gostaria de fazer um pedido na Line Doceria Artesanal!"
                 className="button"
                 target="_blank"
-              ><i className="icon-whatsapp"></i> Entrar em contato</a
               >
+                <i className="icon-whatsapp"></i>
+                Entrar em contato
+              </a>
             </div>
 
             <div className="links">
@@ -262,11 +350,6 @@ export default function Home() {
         <i className="icon-arrow-up"></i>
       </a>
 
-      <div class={isModalOpen ? "modal-overlay active" : "modal-overlay"} ref={modal}>
-        <div class="modal">
-          <p onClick={() => setIsModalOpen(false)} >Fechar meu modal</p>
-        </div>
-      </div>
     </>
   )
 }

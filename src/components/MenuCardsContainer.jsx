@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 import Image from 'next/image'
 
@@ -10,9 +10,10 @@ import 'swiper/css'
 import "swiper/css/pagination"
 import "swiper/css/navigation"
 
-import brigadeiro from '../../public/brigadeiro.jpeg'
-
 export default function MenuCardsContainer() {
+
+    const modal = useRef()
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     const [products, setProducts] = useState(null)
 
@@ -29,51 +30,83 @@ export default function MenuCardsContainer() {
         fetch()
     }, [])
 
+    useEffect(() => console.log(isModalOpen), [isModalOpen])
+
     return (
-        <div className="menu swiper-container">
+        <>
 
-            <Swiper
-                className="swiper-wrapper mySwiper"
-                slidesPerView={1}
-                pagination={{
-                    dynamicBullets: true,
-                }}
-                navigation={true}
-                modules={[Pagination, Navigation]}
-                mousewheel={true}
-                keyboard={true}
-                breakpoints={{
-                    767: {
-                        slidesPerView: 2,
-                        setWrapperSize: true
-                    }
-                }}
-            >
+            <div className="menu swiper-container">
 
-                {products != null &&
-                    products.map(product => {
-                        return (
-                            <SwiperSlide className="swiper-slide" key={product.name}>
+                <Swiper
+                    className="swiper-wrapper mySwiper"
+                    slidesPerView={1}
+                    pagination={{
+                        dynamicBullets: true,
+                    }}
+                    navigation={true}
+                    modules={[Pagination, Navigation]}
+                    mousewheel={true}
+                    keyboard={true}
+                    breakpoints={{
+                        767: {
+                            slidesPerView: 2,
+                            setWrapperSize: true
+                        }
+                    }}
+                >
 
-                                <div className='menu-card'>
+                    {products != null &&
+                        products.map((product, index) => {
+                            return (
+                                <div>
 
-                                    <h3 className='title'>{product.name}</h3>
+                                    <SwiperSlide className="swiper-slide" key={product.name}>
 
-                                    <Image
-                                        src={product.image}
-                                        alt={product.name}
-                                    />
+                                        <div className='menu-card'>
 
-                                    <span>Veja mais</span>
+                                            <h3 className='title'>{product.name}</h3>
+
+                                            <Image
+                                                src={product.image}
+                                                alt={product.name}
+                                            />
+
+                                            <span onClick={() => setIsModalOpen(index)} >
+                                                Veja mais
+                                            </span>
+                                            <span onClick={() => setIsModalOpen(index)} >
+                                                Veja mais
+                                            </span>
+                                            <span onClick={() => setIsModalOpen(index)} >
+                                                Veja mais
+                                            </span>
+                                            <span onClick={() => setIsModalOpen(index)} >
+                                                Veja mais
+                                            </span>
+
+                                        </div>
+
+                                        <div className={isModalOpen === index ? "modal-overlay active" : "modal-overlay"} ref={modal}>
+                                            <div className="modal">
+                                                <p onClick={() => setIsModalOpen(false)} >Fechar meu modal</p>
+                                            </div>
+                                        </div>
+
+                                    </SwiperSlide>
+
+
 
                                 </div>
 
-                            </SwiperSlide>
-                        )
-                    })}
 
-            </Swiper>
+                            )
+                        })}
 
-        </div>
+                </Swiper>
+
+            </div>
+
+        </>
+
     )
 }

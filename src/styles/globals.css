@@ -424,6 +424,7 @@ nav.show div.icon-close {
 .swiper-slide {
   height: auto;
   padding-top: 4rem;
+  z-index: 99999;
 }
 
 .swiper-pagination-bullet {
@@ -661,7 +662,7 @@ footer .social a:hover {
 
 .modal-overlay {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
@@ -670,7 +671,7 @@ footer .social a:hover {
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  z-index: 9999;
+  z-index: 99999999;
 }
 
 .modal-overlay.active {
