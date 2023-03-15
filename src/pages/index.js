@@ -267,15 +267,39 @@ export default function Home() {
                 if (isModalOpen[1] === index) {
                   return (
                     <div className="modal">
-                      <p>Modal do {product.name}</p>
+                      <div className="first-box">
+                        <h3 className='title'>{product.name}</h3>
 
-                      <p
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                        />
+                      </div>
+
+                      <div className="second-box">
+                        <div className='prices'>
+                          {
+                            product.prices.map(price => {
+                              return (
+                                <span>{price}</span>
+                              )
+                            })
+                          }
+                        </div>
+
+                        <a href="" className="button">
+                          Fazer pedido
+                        </a>
+                      </div>
+
+                      <div
+                        className="icon-close"
                         onClick={() => {
                           setIsModalOpen([])
 
                           document.body.style.overflow = "auto"
-                        }} >Fechar meu modal
-                      </p>
+                        }}
+                      ></div>
                     </div>
                   )
                 }
