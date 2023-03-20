@@ -1,4 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useContext } from 'react'
+
+import { ModalContextProvider } from '@/context/ModalContext'
+import { ModalContext } from '@/context/ModalContext'
 
 import Nav from '@/components/Nav'
 import Head from 'next/head'
@@ -15,13 +18,14 @@ import doces from '../../public/doces.jpg'
 import aline from '../../public/aline.png'
 
 import axios from "axios"
+import MenuCards from '@/components/MenuCards'
 
 export default function Home() {
 
   const [products, setProducts] = useState(null)
 
   const modal = useRef()
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const { isModalOpen, setIsModalOpen } = useContext(ModalContext)
 
   const backToTopButton = useRef()
   const [backToTopButtonVisible, setBackToTopButtonVisible] = useState(false)
@@ -207,53 +211,8 @@ export default function Home() {
               </p>
             </header>
 
-            <div className="menu swiper-container">
+            <MenuCards />
 
-              <Swiper
-                className="swiper-wrapper mySwiper"
-                slidesPerView={1}
-                pagination={{
-                  dynamicBullets: true,
-                }}
-                navigation={true}
-                modules={[Pagination, Navigation]}
-                mousewheel={true}
-                keyboard={true}
-                breakpoints={{
-                  767: {
-                    slidesPerView: 2,
-                    setWrapperSize: true
-                  }
-                }}
-              >
-
-                {products != null &&
-                  products.map((product, index) => {
-                    return (
-                      <div>
-                        <SwiperSlide className="swiper-slide" key={product.name}>
-                          <div className='menu-card'>
-                            <h3 className='title'>{product.name}</h3>
-
-                            <Image
-                              src={product.image}
-                              alt={product.name}
-                            />
-
-                            <span onClick={() => {
-                              setIsModalOpen([true, index])
-
-                              document.body.style.overflow = "hidden"
-                            }} >
-                              Veja mais
-                            </span>
-                          </div>
-                        </SwiperSlide>
-                      </div>
-                    )
-                  })}
-              </Swiper>
-            </div>
           </div>
 
         </section>
